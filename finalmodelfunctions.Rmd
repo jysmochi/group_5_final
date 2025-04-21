@@ -55,10 +55,10 @@ return(newds)
 # Test the Data, slightly altered version of yours
 
 ```{r}
-fast <- readRDS(gzcon(url("https://github.com/cd-public/D505/raw/refs/heads/master/dat/craven_train.rds")))
+fast <- readRDS(gzcon(url("https://github.com/cd-public/D505/raw/refs/heads/master/dat/craven_train.rds"))) # change this url to the holdout dataset
 profit <- fast %>% f_profit()
 fast <- fast %>% engineer()
-fast <- fast |> select(1:7) # Max 10 features
+fast <- fast |> select(1:7) 
 fast["Profit"] = profit
 train(Profit ~ .,
       data = fast, 
